@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Live Announcer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="container mx-auto p-6 flex gap-6 max-w-4xl">
+    <div class="form-section flex-1 p-6 bg-gray-800 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold text-green-400 mb-4">Discord Live Announcer</h1>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Selecione o servidor:</label>
+          <select id="guildSelect" class="w-full p-2 bg-gray-700 rounded">
+            <option value="">Carregando servidores...</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Selecione o canal:</label>
+          <select id="channelSelect" class="w-full p-2 bg-gray-700 rounded">
+            <option value="">Selecione um servidor primeiro</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Selecione o cargo:</label>
+          <input type="text" id="roleInput" list="roleList" placeholder="Digite para buscar um cargo..." oninput="window.filterRoles()" class="w-full p-2 bg-gray-700 rounded">
+          <datalist id="roleList"></datalist>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Selecione o jogo:</label>
+          <input type="text" id="gameInput" list="gameList" placeholder="Digite para buscar um jogo..." oninput="window.saveGame()" class="w-full p-2 bg-gray-700 rounded">
+          <datalist id="gameList">
+            <option value="Fortnite">
+            <option value="Valorant">
+            <option value="Minecraft">
+            <option value="League of Legends">
+            <option value="Counter-Strike: Global Offensive">
+            <option value="Among Us">
+            <option value="Apex Legends">
+            <option value="Call of Duty: Warzone">
+            <option value="Overwatch">
+            <option value="Dota 2">
+            <option value="Rocket League">
+          </datalist>
+        </div>
+      </div>
+      <div class="space-y-4 mt-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Selecione a plataforma:</label>
+          <select id="platform" onchange="window.updateDefaultUrl()" class="w-full p-2 bg-gray-700 rounded">
+            <option value="twitch">Twitch</option>
+            <option value="youtube">YouTube</option>
+            <option value="tiktok">TikTok</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Digite sua mensagem:</label>
+          <input type="text" id="message" placeholder="Ex.: ESTOU AO VIVO AGORA NA TWITCH..." class="w-full p-2 bg-gray-700 rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-300">Adicione URLs (uma por linha):</label>
+          <textarea id="urls" placeholder="Ex.: twitch.tv/afslucas" class="w-full p-2 bg-gray-700 rounded h-24"></textarea>
+        </div>
+
+        <div class="flex gap-4">
+          <button onclick="window.clearForm()" class="flex-1 p-2 bg-red-600 rounded hover:bg-red-700">Limpar</button>
+          <button onclick="window.sendMessage()" class="flex-1 p-2 bg-blue-600 rounded hover:bg-blue-700">Enviar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-section flex-1 p-6 bg-gray-800 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold text-green-400 mb-4">Preview</h2>
+      <div id="preview" class="embed p-4 bg-gray-700 rounded"></div>
+    </div>
+  </div>
+  <footer class="mt-6 text-center text-gray-400 text-sm">
+    Desenvolvido por <a href="https://github.com/opswesley" target="_blank" class="text-green-400 hover:underline">opswesley</a>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
