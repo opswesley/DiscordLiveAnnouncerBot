@@ -38,6 +38,10 @@
 2. **Install Dependencies**: Run the following command to install required packages:
    ```bash
    npm install
+   npm install express discord.js dotenv
+   npm install nodemon --save-dev  # For automatic restarts during development
+   npm install discord.js@14.15.3  # Ensure the correct version is installed
+   npm audit fix --force  # Fix any potential vulnerabilities   
    ```
 3. **Configure Environment Variables**:
    - Create a `.env` file in the root directory.
@@ -47,7 +51,8 @@
      ```
 4. **Start the Server**:
    ```bash
-   node index.js
+   nodemon index.js  # Recommended for development (auto-restarts on changes)
+   node index.js  # Standard way to run the bot
    ```
    Expected output:
    ```bash
@@ -159,6 +164,10 @@ O **Discord Live Announcer** é uma aplicação web que envia anúncios de lives
 2. **Instalar Dependências**:
    ```bash
    npm install
+   npm install express discord.js dotenv
+   npm install nodemon --save-dev  # Para reinícios automáticos durante o desenvolvimento
+   npm install discord.js@14.15.3  # Garante que a versão correta seja instalada
+   npm audit fix --force  # Corrige possíveis vulnerabilidades
    ```
 3. **Configurar Variáveis de Ambiente**:
    - Criar um arquivo `.env` e adicionar o token do bot:
@@ -167,7 +176,8 @@ O **Discord Live Announcer** é uma aplicação web que envia anúncios de lives
      ```
 4. **Iniciar o Servidor**:
    ```bash
-   node index.js
+   nodemon index.js  # Recomendado para desenvolvimento (reinicia automaticamente ao alterar)
+   node index.js  # Forma padrão de executar o bot
    ```
 5. **Acessar a Interface Web**: Abra `http://localhost:3000` no navegador.
 
